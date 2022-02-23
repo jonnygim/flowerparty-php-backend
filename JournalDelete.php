@@ -1,5 +1,4 @@
 <?php
-
 $idx = $_POST['idx'];
 $userID = $_POST['userID'];
 
