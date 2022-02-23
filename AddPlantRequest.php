@@ -1,27 +1,17 @@
 <?php
 include "connect.php";
 
-// idx, userID, name nickname reg_date
-$idx = 1;
 $plantName = $_POST["plantName"];
 $userId = $_POST["userId"];
-
 $data = array();
-
 
 // 정보 나누기 
 $data = explode(',', $plantName);
-
 $name = str_replace("{cntntsSj=", "", $data[0]);
-
 $data1 = str_replace("}", "", $data[1]);
 $no = str_replace("cntntsNo=", "", $data1);
 $plantNick = "null";
 
-//
-$reg_date = date("Y-m-d H:i:s");
-
-//
 $statement = mysqli_prepare($con, "INSERT INTO `userPlant` VALUES (?, ?, ?, ?)"); //
 mysqli_stmt_bind_param($statement, "ssss", $name, $no, $userId, $plantNick);
 mysqli_stmt_execute($statement);
