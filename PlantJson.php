@@ -2,11 +2,8 @@
 include "connect.php";
 
 $sql = "SELECT * FROM `plant`";
-
 $result = mysqli_query($con, $sql);
 $data = array();
-
-
 
 // query 돌려서 array에 넣기
 if($result) {
@@ -15,12 +12,11 @@ if($result) {
     }
 
     // json 출력
-    //echo "<pre>"; print_r($data); echo "</pre>";
     header('Content-Type: application/json; charset=utf8');
     $json = to_han (json_encode(array("webnautes"=>$data)));
 
-    // php 5.3 이상 바로 json_encode 사용
-    //$json = json_encode(array("webnautes"=>$data), JSON_PRETTY_PRINT+JSON_UNESCAPED_UNICODE);
+    // php 5.3 이상이면 바로 json_encode 사용
+    // $json = json_encode(array("webnautes"=>$data), JSON_PRETTY_PRINT+JSON_UNESCAPED_UNICODE);
     
     echo $json;
 } else {
@@ -28,7 +24,7 @@ if($result) {
     echo mysqli_error($con);
 }
 
-// json 작업 시 한글 깨지 해결 (PHP 5.3 이하는 함수로 작업해야 함 )
+// json 작업 시 한글 깨짐 해결 (PHP 5.3 이하는 함수로 작업해야 함 )
 function han ($s) { 
     return reset(json_decode('{"s":"'.$s.'"}')); 
 } 
