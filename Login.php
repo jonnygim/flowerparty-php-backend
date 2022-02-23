@@ -20,8 +20,7 @@ while (mysqli_stmt_fetch($statement)) {
     $response["userPassword"] = $userPassword;
     $response["userEmail"] = $userEmail;
     $response["userName"] = $userName;
-    $response["havePlant"] = $havePlant;
-    
+    $response["havePlant"] = $havePlant; 
 }
 
 echo json_encode($response);
