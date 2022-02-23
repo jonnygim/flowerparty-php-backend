@@ -15,7 +15,6 @@ mysqli_stmt_bind_result($statement, $nUserNick);
 $response = array();
 $response["success"] = false;
 
-
 if(mysqli_stmt_affected_rows($statement)) {
     $response["success"] = true;
     $response["nUserNick"] = $nUserNick;
