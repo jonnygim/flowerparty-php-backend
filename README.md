@@ -35,7 +35,7 @@
 
 ### Backend
 
-- 교내 서버 (APM)
+- 교내 리눅스 서버
 - PHP
 - MySQL
 
